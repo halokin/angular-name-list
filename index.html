@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>modules</title>
+    </head>
+    <body ng-app="monapp">
+
+        <div ng-controller="NamesCtrl">
+            <input type="text" ng-model="searchText" placeholder="what are you looking for?"/>
+            <ul>
+                <!-- <li ng-repeat="name in names | orderBy:'toString()' | unique: 'id' | filter:searchText track by $index "> {{name}}</li> -->
+                <li ng-repeat="name in names | orderBy:'toString()' | filter:searchText track by $index ">
+                    {{name}}</li>
+            </ul>
+
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.14/angular.min.js"></script>
+
+        <script>
+
+            var app = angular.module("monapp", []);
+
+            //             app.filter('unique', function() {
+            //
+            //       angular.forEach(collection, function(item) {             var key = item[keyname];             if(keys.indexOf(key) === -1) {                 keys.push(key);                 output.push(item);             }         });         return output;
+            //    }; });
+
+            app.controller("NamesCtrl", function($scope) {
+                var names = [
+                    "Jean",
+                    "Pierre",
+                    "Louis",
+                    "Jean",
+                    "William",
+                    "Jean",
+                    "Mila",
+                    "Mila",
+                    "Nori",
+                    "Brianna",
+                    "Yu",
+                    "Tomoko",
+                    "Tomoko",
+                    "Tomoko",
+                    "Tomoko",
+                    "Della",
+                    "Terica",
+                    "Debby",
+                    "Rosy",
+                    "Suzi",
+                    "Ron",
+                    "Ron",
+                    "Viviana",
+                    "Wes",
+                    "Matt",
+                    "Karla",
+                    "Alia",
+                    "Ramon",
+                    "Ramon",
+                    "Sandra",
+                    "Luigi",
+                    "Luigi",
+                    "Luigi",
+                    "Luigi",
+                    "Luigi",
+                    "Luigi",
+                    "Luigi",
+                    "Vesta",
+                    "Ladawn",
+                    "Geralyn"
+                ];
+                $scope.names = names;
+            });
+        </script>
+
+    </body>
+</html>
